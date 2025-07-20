@@ -1,0 +1,32 @@
+name: Convert PDF to CSV
+
+on:
+  push:
+    paths:
+      - "forcelist.pdf"
+
+jobs:
+  convert:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install PyMuPDF
+        run: pip install pymupdf
+
+      - name: Run conversion script
+        run: python scripts/convert.py
+
+      - name: Commit updated CSV
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data.csv
+          git commit -m "Auto-generate CSV from PDF"
+          git push
