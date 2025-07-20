@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Department List Processor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .status {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        
+        .status.loading {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .status.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .status.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .summary {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .summary-item {
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #dee2e6;
+            min-width: 120px;
+        }
+        
+        .summary-item h3 {
+            margin: 0 0 10px 0;
+            color: #495057;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .summary-item .number {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+            margin: 0;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            align-items: center;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        .print-button {
+            background-color: #28a745;
+            margin-left: 10px;
+        }
+        
+        .print-button:hover {
+            background-color: #1e7e34;
+        }
+        
+        .table-container {
+            margin-top: 20px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            background-color: white;
+        }
+        
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: left;
+            font-size: 12px;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            position: sticky;
+            top: 0;
+        }
+        
+        .highlighted {
+            background-color: #ffeb3b !important;
+            font-weight: bold;
+        }
+        
+        .info {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e7f3ff;
+            border-radius: 4px;
+            font-size: 14px;
+            text-align: center;
+        }
+        
+        @media print {
+            body {
+                margin: 0;
+                background-color: white;
+            }
+            
+            .container {
+                box-shadow: none;
+                padding: 0;
+            }
+            
+            .status, .controls, .summary {
+                display: none;
+            }
+            
+            .header h1 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            table {
+                font-size: 10px;
+            }
+            
+            th, td {
+                padding: 4px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Fire Department Overtime List</h1>
+        </div>
+        
+        <div id="status" class="status loading">
+            Loading and processing files...
+        </div>
+        
+        <div id="summary" class="summary" style="display: none;">
+            <div class="summary-item">
+                <h3>Full Shifts</h3>
+                <div class="number" id="fullCount">--</div>
+            </div>
+            <div class="summary-item">
+                <h3>Partial Shifts</h3>
+                <div class="number" id="partialCount">--</div>
+            </div>
+            <div class="summary-item">
+                <h3>Vacation Relief</h3>
+                <div class="number" id="vrCount">--</div>
+            </div>
+        </div>
+        
+        <div id="controls" class="controls" style="display: none;">
+            <div class="control-group">
+                <label for="opportunityFactor">Highlight Opportunity Factor:</label>
+                <input type="text" id="opportunityFactor" placeholder="e.g., 01, PS, etc.">
+            </div>
+            
+            <div class="control-group">
+                <label for="listLength">List Length (max rows):</label>
+                <input type="number" id="listLength" placeholder="e.g., 10" min="1">
+            </div>
+            
+            <button onclick="updateTable()">Update Table</button>
+            <button class="print-button" onclick="window.print()">Print Table</button>
+        </div>
+        
+        <div id="info" class="info" style="display: none;"></div>
+        
+        <div class="table-container">
+            <div id="tableOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        let processedData = [];
+        
+        async function loadFile(filename) {
+            try {
+                const response = await fetch(filename);
+                if (!response.ok) {
+                    throw new Error(`Failed to load ${filename}: ${response.status}`);
+                }
+                return await response.text();
+            } catch (error) {
+                throw new Error(`Could not load ${filename}: ${error.message}`);
+            }
+        }
+        
+        function summarizeAfterBattalion(text) {
+            const lines = text.split(/\r?\n/);
+            const startIndex = lines.findIndex(line => line.includes("Battalion 01"));
+            if (startIndex === -1) return [0, 0, 0];
+
+            const relevantLines = lines.slice(startIndex);
+            let firefighterCount = 0;
+            let fullCount = 0;
+            let partialCount = 0;
+
+            for (const line of relevantLines) {
+                if (line.includes('Fireﬁghter}')) {
+                    firefighterCount++;
+                } else if (line.includes('#1') || line.includes('#2') || line.includes('#3')) {
+                    const match = line.match(/(\d{2})\D*$/);
+                    const lastTwo = match ? match[1] : null;
+                    if (lastTwo === '24') {
+                        fullCount++;
+                    } else {
+                        partialCount++;
+                    }
+                }
+            }
+
+            return [fullCount, partialCount, firefighterCount];
+        }
+        
+        function combineFiles(text1, text2) {
+            const lines1 = text1.trim().split('\n');
+            const entries1 = lines1.slice(1); // Skip header
+
+            const text2Clean = text2.replace(/\f/g, '');
+            const lines2 = text2Clean.trim().split('\n');
+
+            let startIndex = 0;
+            for (let i = 0; i < lines2.length; i++) {
+                if (lines2[i].includes('Person') || lines2[i].startsWith('#')) {
+                    startIndex = i + 1;
+                    break;
+                }
+            }
+
+            const formatted2 = [];
+            let currentLine = '';
+
+            for (let i = startIndex; i < lines2.length; i++) {
+                const line = lines2[i].trim();
+
+                if (/^\d+\s+[\w',.-]+/.test(line)) {
+                    if (currentLine) formatted2.push(currentLine);
+                    currentLine = line;
+                } else if (line.startsWith('Shift')) {
+                    const continuation = line.replace(/^Shift\s+/, '').trim();
+                    currentLine += ' ' + continuation;
+                } else {
+                    currentLine += ' ' + line;
+                }
+            }
+            if (currentLine) formatted2.push(currentLine);
+
+            const combined = [...entries1, ...formatted2];
+            return combined.map((line, idx) => {
+                return (idx + 1).toString().padEnd(5) + line.replace(/^\d+\s+/, '');
+            });
+        }
+        
+        function convertToCSV(lines) {
+            const result = [["#", "Person", "Rank", "List", "Last Worked", "Shift", "Opportunity Factors"]];
+            
+            lines.forEach((line, index) => {
+                const number = index + 1;
+                const personMatch = line.match(/^\s*\d+\s+(.+?)\s{2,}/);
+                const person = personMatch ? personMatch[1].trim() : "";
+                const list = /Force Hire/.test(line) ? "Force" : "Signup";
+                const rankMatch = line.match(/(Signup|Force Hire for the A)\s+(\w+)/);
+                const rank = rankMatch ? rankMatch[2] : "";
+                const dateMatch = line.match(/\d{4}-\d{2}-\d{2}/);
+                const lastWorked = dateMatch ? dateMatch[0] : "";
+                const shiftMatch = line.match(/\b([ABC]),/);
+                const shift = shiftMatch ? shiftMatch[1] : "40hr";
+                const lastComma = line.lastIndexOf(',');
+                const opportunity = lastComma !== -1 ? line.slice(lastComma + 1).trim() : "";
+
+                result.push([number, person, rank, list, lastWorked, shift, opportunity]);
+            });
+
+            return result;
+        }
+        
+        function generateTable(csvData, opportunityFactor = '', listLength = null) {
+            const headers = csvData[0];
+            const dataRows = csvData.slice(1);
+            
+            const filteredRows = listLength && listLength > 0 ? 
+                dataRows.slice(0, listLength) : dataRows;
+            
+            const opportunityFactorIndex = headers.findIndex(header => 
+                header.toLowerCase().includes('opportunity'));
+            
+            let table = '<table>';
+            
+            table += '<thead><tr>';
+            headers.forEach(header => {
+                table += `<th>${header}</th>`;
+            });
+            table += '</tr></thead>';
+            
+            table += '<tbody>';
+            let highlightedCount = 0;
+            
+            filteredRows.forEach(row => {
+                const ranks = ['FF', 'ENG', 'LT', 'C', 'BC'];
+                let rankIndex = -1;
+                
+                for (let i = 1; i < row.length; i++) {
+                    if (ranks.includes(row[i])) {
+                        rankIndex = i;
+                        break;
+                    }
+                }
+                
+                const fixedRow = [];
+                fixedRow.push(row[0]);
+                
+                if (rankIndex > 1) {
+                    const nameParts = [];
+                    for (let i = 1; i < rankIndex; i++) {
+                        nameParts.push(row[i] || '');
+                    }
+                    fixedRow.push(nameParts.join(', '));
+                    
+                    for (let i = rankIndex; i < row.length; i++) {
+                        fixedRow.push(row[i] || '');
+                    }
+                } else {
+                    fixedRow.push((row[1] || '') + ', ' + (row[2] || ''));
+                    for (let i = 3; i < row.length; i++) {
+                        fixedRow.push(row[i] || '');
+                    }
+                }
+                
+                const shouldHighlight = opportunityFactor && 
+                    opportunityFactorIndex >= 0 && 
+                    fixedRow[opportunityFactorIndex] && 
+                    fixedRow[opportunityFactorIndex].toString().trim().toLowerCase() === 
+                    opportunityFactor.toLowerCase();
+                
+                if (shouldHighlight) highlightedCount++;
+                
+                const rowClass = shouldHighlight ? ' class="highlighted"' : '';
+                table += `<tr${rowClass}>`;
+                
+                fixedRow.forEach(cell => {
+                    table += `<td>${cell || ''}</td>`;
+                });
+                
+                table += '</tr>';
+            });
+            
+            table += '</tbody></table>';
+            
+            document.getElementById('tableOutput').innerHTML = table;
+            
+            let infoText = `Showing ${filteredRows.length} rows`;
+            if (listLength && listLength > 0) {
+                infoText += ` (limited to first ${listLength})`;
+            }
+            if (opportunityFactor) {
+                infoText += `. Highlighted ${highlightedCount} rows matching opportunity factor "${opportunityFactor}"`;
+            }
+            infoText += '.';
+            
+            document.getElementById('info').textContent = infoText;
+            document.getElementById('info').style.display = 'block';
+        }
+        
+        function updateTable() {
+            const opportunityFactor = document.getElementById('opportunityFactor').value.trim();
+            const listLength = parseInt(document.getElementById('listLength').value);
+            generateTable(processedData, opportunityFactor, listLength);
+        }
+        
+        async function processAllFiles() {
+            try {
+                const status = document.getElementById('status');
+                
+                // Load all files
+                status.textContent = 'Loading files...';
+                const [rosterText, picklistText, forcelistText] = await Promise.all([
+                    loadFile('roster.txt'),
+                    loadFile('picklist.txt'),
+                    loadFile('forcelist.txt')
+                ]);
+                
+                // Process roster for summary
+                status.textContent = 'Processing roster data...';
+                const [fullCount, partialCount, vrCount] = summarizeAfterBattalion(rosterText);
+                
+                // Update summary display
+                document.getElementById('fullCount').textContent = fullCount.toString().padStart(2, '0');
+                document.getElementById('partialCount').textContent = partialCount.toString().padStart(2, '0');
+                document.getElementById('vrCount').textContent = vrCount.toString().padStart(2, '0');
+                
+                // Combine picklist and forcelist
+                status.textContent = 'Combining lists...';
+                const combinedLines = combineFiles(picklistText, forcelistText);
+                
+                // Convert to CSV format
+                status.textContent = 'Converting to table format...';
+                processedData = convertToCSV(combinedLines);
+                
+                // Generate initial table
+                status.textContent = 'Generating table...';
+                generateTable(processedData);
+                
+                // Show success and controls
+                status.className = 'status success';
+                status.textContent = 'Processing complete! Table is ready.';
+                document.getElementById('summary').style.display = 'flex';
+                document.getElementById('controls').style.display = 'flex';
+                
+            } catch (error) {
+                console.error('Error processing files:', error);
+                const status = document.getElementById('status');
+                status.className = 'status error';
+                status.textContent = `Error: ${error.message}`;
+            }
+        }
+        
+        // Start processing when page loads
+        window.onload = function() {
+            processAllFiles();
+        };
+    </script>
+</body>
+</html>
