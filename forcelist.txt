@@ -1,0 +1,350 @@
+#    Person                                  List                   Rank   Opportunity Factors
+1    Howard, Kurt W. (HM)                    Force Hire for the A   FF     2025-04-12 2024-08-31 2024-05-25, 01/03/2000 00:00:00, 2025-07-08
+                                             Shift                         2025-05-30 2025-04-21, C, 16
+2    Neal, Mason W.                          Force Hire for the A   FF     2025-04-12 2024-11-23 2024-10-05, 06/29/2021 00:00:00, 2024-11-23
+                                             Shift                         2024-10-05 2024-05-18, C, 28
+3    Macias, Jason A. (HAZMAT)               Force Hire for the A   FF     2025-04-12 2024-11-23 2024-10-12, 11/04/2022 00:00:00, 2025-06-27
+                                             Shift                         2025-06-18 2025-05-25, C, 17
+4    Winemiller, Douglas B. (HM)             Force Hire for the A   ENG    2025-04-12 2024-12-07 2024-05-08, 05/12/2008 00:00:00, 2025-07-08
+                                             Shift                         2025-06-20 2025-05-27, C, 12
+5    Clawson, James C. (SWUR/WL)             Force Hire for the A   FF     2025-04-12 2024-12-07 2024-11-16, 02/05/2007 00:00:00, 2025-07-17
+                                             Shift                         2025-07-14 2025-06-29, C, 32
+6    Brock, Caleb R. (PM)                    Force Hire for the A   FF     2025-04-12 2025-01-18 2024-11-16, 09/25/2023 00:00:00, 2025-06-11
+                                             Shift                         2025-04-24 2025-04-12, C, B8
+7    Fellers, Kevin D. (FDSO)                Force Hire for the A   C      2025-04-18 2024-11-23 2024-07-13, 01/11/1993 00:00:00, 2025-07-06
+                                             Shift                         2025-06-11 2025-04-24, C, 28
+8    Wharton, Timesha J.                     Force Hire for the A   FF     2025-04-19 2024-12-28 2024-07-20, 11/04/2022 00:00:00, 2025-07-18
+                                             Shift                         2025-07-14 2024-09-02, C, 39
+9    Case, Austin M. (DNA)                   Force Hire for the A   FF     2025-04-19 2024-12-28 2024-08-24, 02/26/2024 00:00:00, 2025-04-19
+                                             Shift                         2024-12-28 2024-08-24, C, B3
+10   Holder, Richard W. (ARFF35)             Force Hire for the A   LT     2025-04-19 2025-01-25 2024-12-28, 10/26/1998 00:00:00, 2025-07-17
+                                             Shift                         2025-06-20 2025-05-28, C, 35
+11   Gibson, Robert B.                       Force Hire for the A   ENG    2025-04-19 2025-03-25 2024-09-23, 02/16/1998 00:00:00, 2025-04-19
+                                             Shift                         2025-04-10 2025-03-16, C, 21
+12   Langford, Jason R. (CPM/EM/HAZMAT/PM)   Force Hire for the A   ENG    2025-04-21 2024-12-07 2024-05-17, 10/29/2007 00:00:00, 2025-06-26
+                                             Shift                         2025-06-05 2025-04-24, C, 37
+13   Horton, Dallas W.                       Force Hire for the A   FF     2025-04-21 2024-12-25 2024-05-11, 10/19/2015 00:00:00, 2024-05-27
+                                             Shift                         2023-08-19, C, 30
+14   Adams, Mikey W.                         Force Hire for the A   FF     2025-04-21 2024-12-28 2024-05-05, 10/17/2016 00:00:00, 2025-07-15
+                                             Shift                         2024-12-28 2024-02-27, C, 34
+15   Kirscht, Barrett R. (TRT)               Force Hire for the A   FF     2025-04-24 2021-11-25 2021-10-15, 02/05/2007 00:00:00, 2020-11-07
+                                             Shift                         2020-10-14 2020-10-08, C, 38
+16   Feemster, Mark W.                       Force Hire for the A   FF     2025-04-24 2024-12-07 2024-05-05, 09/17/2008 00:00:00, 2025-06-24
+                                             Shift                         2025-03-19 2025-02-06, C, 22
+17   Bays, Jerry A. (HM)                     Force Hire for the A   ENG    2025-04-24 2024-12-07 2024-09-14, 02/05/2007 00:00:00, 2025-07-14
+                                             Shift                         2025-07-03 2025-02-26, C, 04
+18   Lambert, Jr., Richard D.                Force Hire for the A   FF     2025-04-24 2024-12-25 2024-05-11, 07/16/2021 00:00:00, 2025-07-11
+                                             Shift                         2025-06-26 2025-05-28, C, 36
+19   Stone, John B. (ARFF42)                 Force Hire for the A   LT     2025-04-24 2024-12-28 2024-07-13, 09/22/1997 00:00:00, 2025-07-17
+                                             Shift                         2025-07-11 2025-06-29, C, 42
+20   Snowden, Cody                           Force Hire for the A   FF     2025-04-24 2024-12-28 2024-09-14, 08/16/2019 00:00:00, 2024-12-28
+                                             Shift                         2024-09-14 2024-06-01, C, 12
+21   Greif, Jr., James S. (CPM/HG/HM/PM)     Force Hire for the A   LT     2025-04-26 2025-04-19 2025-04-05, 10/29/2007 00:00:00, 2025-04-26
+                                             Shift                         2025-04-20 2025-04-19, , B2
+22   Leong, Justin F. (TRT)                  Force Hire for the A   FF     2025-04-27 2024-12-25 2024-05-05, 04/21/2014 00:00:00, 2021-07-08
+                                             Shift                         2021-03-28 2021-03-13, C, 14
+23   Brown, Randall C. (HM/PM/SWUR)          Force Hire for the A   ENG    2025-04-27 2025-01-18 2024-07-13, 04/21/2014 00:00:00, 2025-01-18
+                                             Shift                         2024-03-16, C, 26
+24   Price, Eriq (DNA/PFF)                   Force Hire for the A   FF     2025-04-27 2025-01-18 2024-10-12, 02/26/2024 00:00:00, 2025-06-27
+                                             Shift                         2025-06-12 2025-05-01, C, B5
+25   Beamer, Joel (SWUR/TRT)                 Force Hire for the A   ENG    2025-04-27 2025-01-18 2024-11-23, 12/21/2018 00:00:00, 2025-07-18
+                                             Shift                         2025-06-30 2025-06-15, C, 14
+26   Broadwater, Robert C. (FDSO/HAZMATBC)   Force Hire for the A   BC     2025-05-03 2025-02-01 2025-01-25, 10/26/1998 00:00:00, 2025-07-15
+                                             Shift                         2025-06-03 2025-01-28, , FP
+27   Davis, Austin                           Force Hire for the A   FF     2025-05-03 2025-02-08 2025-01-18, 02/26/2024 00:00:00, 2025-07-14
+                                             Shift                         2025-07-02 2025-06-23, C, B5
+28   Brown, Brady D.                         Force Hire for the A   ENG    2025-05-03 2025-03-08 2024-12-28, 06/26/1995 00:00:00, 2025-07-08
+                                             Shift                         2025-06-23 2025-03-17, C, 43
+29   Smith, Christopher A. (PFF)             Force Hire for the A   FF     2025-05-03 2025-03-25 2024-11-04, 02/26/2024 00:00:00, 2025-05-03
+                                             Shift                         2025-04-28 2025-04-15, C,
+30   Culver, Hayden R. (DNA/PM)              Force Hire for the A   FF     2025-05-03 2025-04-12 2024-11-23, 02/26/2024 00:00:00, 2025-07-17
+                                             Shift                         2025-05-03 2025-04-12, C, B3
+31   Junior, Thomas J. (ARFF35/CC/HM)        Force Hire for the A   ENG    2025-05-03 2025-04-12 2025-02-08, 05/12/2008 00:00:00, 2025-03-07
+                                             Shift                         2025-02-23 2025-02-08, C, 35
+32   Lilly, Michael W. (TRT)                 Force Hire for the A   FF     2025-05-03 2025-04-12 2025-03-29, 08/16/2019 00:00:00, 2025-07-18
+                                             Shift                         2025-07-03 2025-06-06, C, 14
+33   Gilmore, Mason A. (HM)                  Force Hire for the A   FF     2025-05-03 2025-04-24 2024-12-31, 09/25/2023 00:00:00, 2025-06-18
+                                             Shift                         2025-05-22 2025-04-15, C, B5
+34   Hood, David R. (PM)                     Force Hire for the A   ENG    2025-05-03 2025-04-26 2025-02-22, 11/22/2010 00:00:00, 2025-07-06
+                                             Shift                         2025-06-22 2025-06-08, , ES
+35   Farmer, John D.                         Force Hire for the A   FF     2025-05-06 2024-11-16 2024-04-14, 09/15/2008 00:00:00, 2025-05-27
+                                             Shift                         2025-05-16 2025-05-06, C, 21
+36   Pack, Casey R.                          Force Hire for the A   FF     2025-05-06 2024-12-28 2024-11-16, 09/29/2014 00:00:00, 2025-07-06
+                                             Shift                         2025-06-23 2025-06-02, C, 08
+37   McConnell, Jordan A. (TRT)              Force Hire for the A   FF     2025-05-06 2025-02-15 2024-09-14, 12/31/2021 00:00:00, 2025-02-15
+                                             Shift                         2024-10-18 2024-09-24, C, 14
+38   Lopez, Aric A. (HAZMAT)                 Force Hire for the A   FF     2025-05-09 2025-01-25 2024-10-05, 06/29/2021 00:00:00, 2025-06-23
+                                             Shift                         2025-03-07 2025-01-25, C, 23
+39   MacDonald, Dayton K. (PFF)              Force Hire for the A   FF     2025-05-09 2025-02-15 2024-10-26, 02/26/2024 00:00:00, 2025-06-06
+                                             Shift                         2025-05-28 2025-05-07, C,
+40   Lindemann, James P.                     Force Hire for the A   FF     2025-05-09 2025-02-15 2024-10-26, 08/28/2020 00:00:00, 2025-07-11
+                                             Shift                         2025-07-09 2025-06-29, C, 26
+41   Griﬃn, David R. (CPM/HAZMAT/PM)          Force Hire for the A   LT    2025-05-10 2024-12-31 2024-12-07, 05/15/2006 00:00:00, 2025-07-03
+                                              Shift                        2025-05-10 2025-03-19, C, ESS
+42   Perez, Steven (FDSO)                     Force Hire for the A   C     2025-05-10 2025-01-25 2024-06-29, 06/26/1995 00:00:00, 2025-05-10
+                                              Shift                        2025-04-13 2025-03-19, C, 34
+43   Chernosky, Erica                         Force Hire for the A   FF    2025-05-10 2025-03-01 2024-09-14, 09/25/2023 00:00:00, 2025-06-12
+                                              Shift                        2025-05-22 2025-05-16, C, B1
+44   Nix, Chad B.                             Force Hire for the A   ENG   2025-05-10 2025-03-08 2024-09-14, 02/05/2007 00:00:00, 2025-06-24
+                                              Shift                        2025-05-28 2025-05-10, C, 22
+45   Riggs, Nicholas M.                       Force Hire for the A   ENG   2025-05-10 2025-04-21 2024-12-28, 06/11/2001 00:00:00, 2025-06-26
+                                              Shift                        2025-06-06 2025-05-25, C, 15
+46   Rouse Jr, Michael J.                     Force Hire for the A   FF    2025-05-10 2025-05-03 2025-02-15, 09/25/2023 00:00:00, 2025-07-09
+                                              Shift                        2025-06-23 2025-05-10, C, B4
+47   Crook, Ty W. (DNA/PFF)                   Force Hire for the A   FF    2025-05-18 2024-08-10 2024-04-20, 02/26/2024 00:00:00, 2025-07-08
+                                              Shift                        2025-06-23 2024-07-22, C, B1
+48   Williamson, Philip C.                    Force Hire for the A   FF    2025-05-18 2024-12-14 2024-06-16, 09/25/2023 00:00:00, 12/14/2024,
+                                              Shift                        C, B7
+49   Rhodes, Jason T. (HAZMAT)                Force Hire for the A   ENG   2025-05-21 2024-12-25 2024-05-05, 01/11/1993 00:00:00, 2025-07-08
+                                              Shift                        2025-06-23 2025-06-06, C, 17
+50   Norton, Jimmy H. (FDSO/HAZMAT)           Force Hire for the A   C     2025-05-21 2025-03-01 2024-12-28, 12/12/1994 00:00:00, 2025-07-18
+                                              Shift                        2025-07-15 2025-06-26, C, 17
+51   Hestrin, Jr., Martin D.                  Force Hire for the A   ENG   2025-05-24 2024-12-28 2024-10-26, 01/09/2006 00:00:00, 2025-06-24
+                                              Shift                        2025-06-02 2025-01-30, C, 09
+52   Amstein, Kevin N. (HM)                   Force Hire for the A   FF    2025-05-24 2025-01-18 2025-01-11, 06/11/2001 00:00:00, 2025-05-24
+                                              Shift                        2025-05-11 2025-05-09, , PS
+53   Barnett, Makayla (HAZMAT/HG/TRT)         Force Hire for the A   FF    2025-05-24 2025-02-14 2024-05-18, 12/31/2021 00:00:00, 2025-05-13
+                                              Shift                        2024-12-22 2024-12-11, C, 02
+54   Garza, Robert L. (HM)                    Force Hire for the A   ENG   2025-05-24 2025-03-08 2024-11-23, 08/28/2020 00:00:00, 2025-06-08
+                                              Shift                        2025-05-24 2025-03-08, C, 28
+55   Hand, Matthew M. (HAZMAT)                Force Hire for the A   LT    2025-05-24 2025-03-10 2024-06-22, 03/12/2012 00:00:00, 2025-06-23
+                                              Shift                        2024-10-30 2024-06-22, C, 23
+56   Gann, Joe W.                             Force Hire for the A   FF    2025-05-24 2025-03-10 2024-07-13, 01/05/2004 00:00:00, 2025-06-30
+                                              Shift                        2025-06-02 2025-05-21, C, 10
+57   Brown, Michael J.                        Force Hire for the A   FF    2025-05-24 2025-03-13 2024-07-06, 09/11/2020 00:00:00, 2025-07-17
+                                              Shift                        2025-06-18 2025-05-13, C, 39
+58   Moore, Reginald K. (TRT)                 Force Hire for the A   FF    2025-05-24 2025-03-13 2024-08-12, 10/29/2007 00:00:00, 2025-07-17
+                                              Shift                        2025-07-09 2025-07-02, C, 02
+59   Rudek, Mason R.                          Force Hire for the A   FF    2025-05-24 2025-03-13 2024-08-31, 08/19/2022 00:00:00, 2025-07-03
+                                              Shift                        2025-05-22 2025-05-13, C, 21
+60   Briggs, Kyle E. (CPM/PM)                 Force Hire for the A   FF    2025-05-24 2025-03-16 2024-08-24, 02/21/2020 00:00:00, 2025-06-27
+                                              Shift                        2025-06-18 2025-05-24, C, 45
+61   Nicklas, Jimmy D.                        Force Hire for the A   FF    2025-05-24 2025-03-19 2024-09-21, 01/03/2000 00:00:00, 2025-07-11
+                                              Shift                        2025-05-24 2025-03-19, C, 16
+62   Brown, Kyle (PFF)                        Force Hire for the A   FF    2025-05-24 2025-03-22 2024-10-26, 02/26/2024 00:00:00, 2025-06-18
+                                              Shift                        2025-05-24 2025-03-17, C,
+63   Ramsey, Juliette D. (DNA/PFF)            Force Hire for the A   FF    2025-05-24 2025-03-29 2025-03-25, 02/26/2024 00:00:00, , C,
+                                              Shift
+64   Schenck, Morgan J. (FDSO)                Force Hire for the A   C     2025-05-24 2025-04-12 2024-12-28, 05/12/2008 00:00:00, 2025-07-17
+                                              Shift                        2025-07-02 2025-06-08, C, 40
+65   Leonguerrero, Robby M.                   Force Hire for the A   LT    2025-05-24 2025-04-12 2025-03-01, 01/05/2004 00:00:00, 2025-07-17
+                                              Shift                        2025-07-09 2025-07-06, C, 29
+66   Aguirre, Alejandro (BL)                  Force Hire for the A   LT    2025-05-24 2025-04-12 2025-03-29, 01/05/2004 00:00:00, 2025-07-14
+                                              Shift                        2025-07-09 2025-05-30, C, 45
+67   Wells, James                             Force Hire for the A   FF    2025-05-24 2025-04-21 2024-12-07, 12/21/2018 00:00:00, 2025-07-18
+                                              Shift                        2025-07-11 2025-07-09, C, 09
+68   Ryan, Tony C.                            Force Hire for the A   ENG   2025-05-24 2025-04-24 2024-05-17, 03/12/2012 00:00:00, 2025-07-17
+                                              Shift                        2025-07-15 2025-07-06, C, 45
+69   Nunez, Oscar A. (DNA/PFF)                Force Hire for the A   FF    2025-05-30 2025-02-08 2024-11-04, 02/26/2024 00:00:00, 2025-05-28
+                                              Shift                        2025-01-09, C,
+70   Sims, Colten R. (PM)                     Force Hire for the A   FF    2025-05-30 2025-02-14 2024-06-08, 10/17/2016 00:00:00, 2025-04-10
+                                              Shift                        2025-03-13 2025-03-07, C, 03
+71   Schieck, Jonathan D. (FDSO/HAZMAT/TRT)   Force Hire for the A   C     2025-05-30 2025-02-15 2024-12-07, 05/12/2008 00:00:00, 2025-05-01
+                                              Shift                        2025-04-03 2025-03-11, C, 02
+72   Overson, Michael A.                      Force Hire for the A   FF    2025-05-30 2025-03-01 2024-09-21, 05/04/2024 00:00:00, 2025-03-01
+                                              Shift                        2024-09-21 2024-09-02, C, B4
+73   Pennington, Christopher C.               Force Hire for the A   ENG   2025-05-30 2025-03-13 2024-09-14, 03/12/2012 00:00:00, 2025-05-16
+                                              Shift                        2025-05-07 2024-12-11, C, 08
+74   Embrey, Brandon M.                       Force Hire for the A   FF    2025-05-30 2025-03-16 2024-09-14, 11/04/2022 00:00:00, , C, B6
+                                              Shift
+75   Smith, Donald R. (SWUR)                  Force Hire for the A   FF    2025-05-30 2025-03-19 2024-10-05, 08/16/2019 00:00:00, 2025-07-03
+                                              Shift                        2025-06-18 2025-05-30, C, 45
+76   Palmer, Eric A. (HAZMAT/TRT)             Force Hire for the A   FF    2025-05-30 2025-03-22 2024-09-23, 01/09/2006 00:00:00, 2020-11-25
+                                              Shift                        2018-07-31 2018-07-12, C, 02
+77   Hughes, Seth W.                          Force Hire for the A   FF    2025-05-31 2025-03-13 2024-08-31, 08/16/2019 00:00:00, 2025-05-31
+                                              Shift                        2025-03-13 2025-02-18, C, 16
+78   Bohl, Trevor R. (SWUR)                   Force Hire for the A   LT    2025-05-31 2025-03-22 2024-11-02, 09/29/2014 00:00:00, 2025-07-18
+                                              Shift                        2025-07-11 2025-07-03, C, 15
+79   Bobrowski, Joshua T.                     Force Hire for the A   ENG   2025-05-31 2025-03-28 2024-11-16, 09/29/2014 00:00:00, 2024-12-05
+                                              Shift                        2024-11-16 2024-09-18, C, 18
+80   Garcia, Mark P. (ARFF44)                 Force Hire for the A   FF    2025-05-31 2025-03-29 2024-12-07, 11/04/2022 00:00:00, 2025-07-15
+                                              Shift                        2025-06-24 2025-05-31, C, 25
+81   Craven, Justin                           Force Hire for the A   FF    2025-05-31 2025-03-29 2024-12-28, 12/21/2018 00:00:00, 2025-05-31
+                                           Shift                        2025-03-29 2025-02-21, C, 12
+82    Edwards, Dane K. (HAZMAT)            Force Hire for the A   FF    2025-05-31 2025-05-18 2024-12-28, 06/29/2021 00:00:00, 2025-07-08
+                                           Shift                        2025-06-24 2025-05-31, C, 17
+83    Pack, Mitchell (PFF)                 Force Hire for the A   FF    06/08/2025, 10/21/2024 00:00:00, 2025-07-18 2025-06-18, C, B4
+                                           Shift
+84    Vincent, Katie E. (CPM/PM/SWUR)      Force Hire for the A   FF    2025-06-08 2025-05-03 2025-02-15, 08/28/2020 00:00:00, 2025-07-11
+                                           Shift                        2025-07-03 2025-06-05, C, 43
+85    Velasco Casas, Juan (PFF)            Force Hire for the A   FF    06/14/2025, 10/21/2024 00:00:00, , C, B7
+                                           Shift
+86    McGaughy, Caden (PFF)                Force Hire for the A   FF    06/14/2025, 10/21/2024 00:00:00, 2025-07-14 2025-06-29 2025-06-23,
+                                           Shift                        C, B5
+87    Kemp, Adam B.                        Force Hire for the A   FF    2025-06-14 2024-05-18 2024-04-06, 06/29/2021 00:00:00, 2025-03-12
+                                           Shift                        2025-01-01 2024-12-17, , 31
+88    Pack, Kevin W.                       Force Hire for the A   LT    2025-06-14 2025-02-01 2025-01-11, 03/22/1999 00:00:00, 2025-07-17
+                                           Shift                        2025-07-08 2025-06-27, C, 21
+89    Hall, James C.                       Force Hire for the A   ENG   2025-06-14 2025-03-22 2024-11-16, 05/12/2008 00:00:00, 2025-06-27
+                                           Shift                        2025-06-14 2025-05-27, C, 40
+90    Garcia, Natalie                      Force Hire for the A   FF    2025-06-14 2025-03-29 2024-10-26, 08/19/2022 00:00:00, , C, 27
+                                           Shift
+91    Ludwig, Sr., Gregory T. (HM/SWUR)    Force Hire for the A   LT    2025-06-14 2025-03-29 2024-12-07, 09/23/2002 00:00:00, 2025-06-14
+                                           Shift                        2025-04-27 2025-03-29, C, 08
+92    Schmedel, John M.                    Force Hire for the A   ENG   2025-06-14 2025-03-29 2025-02-08, 09/15/2008 00:00:00, 2025-06-14
+                                           Shift                        2025-03-29 2025-02-08, C, 13
+93    Boucher, Michael L. (ARFF35/HM)      Force Hire for the A   ENG   2025-06-14 2025-04-12 2024-11-23, 10/26/1998 00:00:00, 2025-06-14
+                                           Shift                        2025-05-15 2025-04-30, C, 35
+94    Alexander, Brian M. (FDSO/HM)        Force Hire for the A   C     2025-06-14 2025-04-12 2025-02-15, 08/02/1999 00:00:00, 2025-07-14
+                                           Shift                        2025-07-08 2025-06-27, C, 16
+95    Curington, Carli A. (SWUR/TRT)       Force Hire for the A   FF    2025-06-14 2025-04-21 2024-12-07, 08/19/2022 00:00:00, 2025-06-14
+                                           Shift                        2025-01-22 2024-10-05, C, 07
+96    Toves, Austin N. (TRT)               Force Hire for the A   FF    2025-06-14 2025-04-27 2024-12-07, 08/28/2020 00:00:00, 2025-06-14
+                                           Shift                        2025-04-27 2025-03-07, C, 01
+97    Jimenez, Caleb C. (TRT)              Force Hire for the A   FF    2025-06-14 2025-05-03 2025-03-22, 08/19/2022 00:00:00, 2023-06-19
+                                           Shift                        2022-10-25, C, 38
+98    Sidney, Angel L. (BL/PFF)            Force Hire for the A   FF    2025-06-14 2025-05-17 2025-05-03, 02/26/2024 00:00:00, 2025-07-14
+                                           Shift                        2025-07-11 2025-07-03, C,
+99    Brownen, Steven D.                   Force Hire for the A   LT    2025-06-14 2025-05-24 2025-05-06, 01/03/2000 00:00:00, 2025-07-11
+                                           Shift                        2025-07-08 2025-06-14, C, 18
+100   Gilmore, Samuel A. (FDSO/HAZMATBC)   Force Hire for the A   BC    2025-06-20 2025-02-08 2024-12-14, 09/22/1997 00:00:00, 2025-06-09
+                                           Shift                        2025-05-06 2025-03-13, C, 25
+101   Goudie, Craig W. (PM)                Force Hire for the A   FF    2025-06-20 2025-02-26 2024-07-13, 10/17/2016 00:00:00, 07/13/2024,
+                                           Shift                        C, 31
+102   Shaw, Travis G.                      Force Hire for the A   FF    2025-06-21 2025-03-22 2025-03-01, 09/29/2014 00:00:00, 2025-07-17
+                                           Shift                        2025-06-29 2025-06-21, C, 04
+103   Chapman, Joseph A.                   Force Hire for the A   FF    2025-06-21 2025-04-12 2024-12-14, 08/16/2019 00:00:00, 2025-06-21
+                                           Shift                        2025-06-06 2025-04-12, C, 26
+104   Stephens, Gary P. (HM)               Force Hire for the A   LT    2025-06-21 2025-04-19 2024-12-28, 10/29/2007 00:00:00, 2025-07-17
+                                           Shift                        2025-06-21 2025-04-19, C, 10
+105   Gonzales, Steven A.                  Force Hire for the A   FF    2025-06-21 2025-04-27 2025-01-18, 11/04/2022 00:00:00, 2025-07-14
+                                           Shift                        2025-06-30 2025-06-21, C, 41
+106   Wagner, Keagan A.                    Force Hire for the A   FF    2025-06-21 2025-05-09 2025-02-15, 08/16/2019 00:00:00, 2025-07-03
+                                           Shift                        2025-06-21 2025-06-09, C, 26
+107   McDowell, Nicholas D. (HM)           Force Hire for the A   FF    2025-06-21 2025-05-24 2025-03-13, 09/23/2002 00:00:00, 2025-07-03
+                                           Shift                        2025-06-24 2025-06-21, C, 21
+108   Howard, Darel W. (HM)                Force Hire for the A   LT    2025-06-21 2025-05-31 2025-03-28, 03/22/1999 00:00:00, 2025-07-18
+                                           Shift                        2025-06-21 2025-05-31, C, 43
+109   Jones, Ricky D.                      Force Hire for the A   FF    2025-06-21 2025-05-31 2025-05-10, 01/03/2000 00:00:00, 2025-02-28
+                                           Shift                        2025-02-15 2025-02-01, , ESS
+110   Dauenhauer, Cameron S. (HM/SWUR)     Force Hire for the A   FF    2025-06-21 2025-06-14 2025-05-09, 04/21/2014 00:00:00, 2025-07-08
+                                           Shift                        2025-06-14 2025-06-08, C, 29
+111   Mundie, Brandon K.                   Force Hire for the A   ENG   2025-06-27 2025-05-22 2025-04-19, 04/03/2017 00:00:00, 2025-07-09
+                                           Shift                        2025-06-30 2025-06-24, C, 06
+112   Ventress, Natalie D.                 Force Hire for the A   FF    2025-06-28 2025-05-03 2025-01-25, 09/11/2020 00:00:00, 2025-06-28
+                                           Shift                        2025-05-25 2025-04-21, , CRR
+113   Horwedel, Jacob T.                   Force Hire for the A   C     2025-06-28 2025-05-24 2025-05-17, 02/05/2007 00:00:00, 2025-07-10
+                                           Shift                        2025-06-28 2025-06-12, , 03
+114   Lugo, Michael D. (HM/TRT)            Force Hire for the A   C     2025-06-28 2025-06-14 2025-05-25, 06/03/1996 00:00:00, 2025-06-06
+                                           Shift                        2025-02-20 2025-01-11, , FI
+115   Escobar, Christopher R. (TRT)        Force Hire for the A   FF    2025-07-02 2025-05-24 2025-04-19, 01/05/2004 00:00:00, 2025-07-11
+                                           Shift                        2025-06-18 2025-05-24, C, 38
+116   Aguilar, Eric (HAZMAT/PM/WL)         Force Hire for the A   LT    2025-07-02 2025-05-30 2025-03-22, 04/21/2014 00:00:00, 2025-07-14
+                                           Shift                        2025-07-03 2025-02-17, C, 24
+117   Fishman, Edward J. (HM/K9)           Force Hire for the A   LT    2025-07-04 2025-06-14 2025-05-25, 08/02/1999 00:00:00, 2025-03-22
+                                           Shift                        2024-11-23 2024-10-19, , FI
+118   Ikerd, Michael E. (HM/K9)            Force Hire for the A   LT    2025-07-04 2025-06-28 2025-06-21, 09/22/1997 00:00:00, 2025-05-03
+                                           Shift                        2025-04-12 2025-01-25, , FI
+119   Jenkins, Tyler J. (CPM/PM)           Force Hire for the A   FF    2025-07-05 2025-03-23 2024-06-29, 08/13/2020 00:00:00, 2024-09-30
+                                           Shift                        2024-09-09 2024-06-29, C, 33
+120   Koepp, Matthew M.                    Force Hire for the A   FF    2025-07-05 2025-03-25 2024-09-21, 10/17/2016 00:00:00, 2025-07-05
+                                           Shift                        2025-05-07 2024-09-21, C, 08
+121   Veselka, David M. (AmbA)             Force Hire for the A   ENG   2025-07-05 2025-03-25 2024-09-23, 05/15/2006 00:00:00, 2025-07-05
+                                           Shift                        2025-06-30 2025-06-05, C, 41
+122   Lyddane, Gilbert T.                     Force Hire for the A   FF    2025-07-05 2025-03-25 2024-10-12, 05/12/2008 00:00:00, 2025-07-14
+                                              Shift                        2025-07-08 2025-05-13, C, 29
+123   West, Hunter (DNA/PFF)                  Force Hire for the A   FF    2025-07-05 2025-03-25 2024-11-04, 02/26/2024 00:00:00, , C,
+                                              Shift
+124   Walsh, Daniel C. (HG/HM/PM)             Force Hire for the A   FF    2025-07-05 2025-03-28 2024-08-03, 09/29/2014 00:00:00, 2025-07-05
+                                              Shift                        2025-06-17 2025-02-24, C, 12
+125   Brickman, Kristen N.                    Force Hire for the A   FF    2025-07-05 2025-03-28 2024-11-16, 09/25/2023 00:00:00, 2025-03-25
+                                              Shift                        2025-02-11 2025-01-15, C, B1
+126   Larkin, Joshua B. (HM)                  Force Hire for the A   LT    2025-07-05 2025-03-28 2024-11-16, 09/29/2014 00:00:00, 2025-02-12
+                                              Shift                        2025-01-15 2024-11-16, C, 26
+127   Sheehy, James R. (HAZMAT)               Force Hire for the A   C     2025-07-05 2025-04-06 2024-05-11, 11/22/2010 00:00:00, 2025-07-05
+                                              Shift                        2024-05-11 2024-01-10, C, 19
+128   Montgomery, Terry W. (ARFF44)           Force Hire for the A   ENG   2025-07-05 2025-04-19 2025-01-04, 06/11/2001 00:00:00, 2025-07-05
+                                              Shift                        2025-04-19 2025-03-25, C, 25
+129   Wegmann, Jonathan M.                    Force Hire for the A   ENG   2025-07-05 2025-04-21 2024-12-14, 09/23/2002 00:00:00, 2025-07-05
+                                              Shift                        2024-12-14 2024-08-03, C, 10
+130   Call, Brian J. (HAZMAT/TRT)             Force Hire for the A   LT    2025-07-05 2025-05-03 2025-03-22, 06/03/1996 00:00:00, 2025-07-11
+                                              Shift                        2025-07-05 2025-06-30, C, 02
+131   Stanton, Patrick M. (WL)                Force Hire for the A   FF    2025-07-05 2025-05-10 2025-04-12, 08/28/2020 00:00:00, 2025-07-05
+                                              Shift                        2025-04-12 2024-12-14, C, 22
+132   Camejo, Eric R. (ARFF35/BL)             Force Hire for the A   FF    2025-07-05 2025-05-10 2025-04-12, 02/23/2019 00:00:00, 2025-07-05
+                                              Shift                        2025-06-11 2025-05-10, C, 35
+133   Garcia, Brigido (HM)                    Force Hire for the A   FF    2025-07-05 2025-05-24 2025-03-22, 06/11/2001 00:00:00, 2025-07-05
+                                              Shift                        2025-05-24 2025-05-18, C, 12
+134   Graves, Nathan W. (ARFF44/HM)           Force Hire for the A   FF    2025-07-05 2025-05-31 2025-05-03, 10/19/2015 00:00:00, 2025-07-15
+                                              Shift                        2025-07-05 2025-06-27, C, 25
+135   Dunkin, Garrett (DNA/PFF)               Force Hire for the A   FF    2025-07-05 2025-06-08, 10/21/2024 00:00:00, 2025-07-05 2025-06-26
+                                              Shift                        2025-06-08, C, B2
+136   Wroblewski, Kyle A. (HM/SWUR)           Force Hire for the A   FF    2025-07-05 2025-06-14 2025-04-26, 04/21/2014 00:00:00, 2025-04-26
+                                              Shift                        2025-02-14 2025-01-11, , FI
+137   Hixon, Derek D. (SWUR)                  Force Hire for the A   ENG   2025-07-05 2025-06-14 2025-05-24, 11/22/2010 00:00:00, 2025-07-11
+                                              Shift                        2025-07-05 2025-06-29, C, 32
+138   Walsh, Sean M.                          Force Hire for the A   FF    2025-07-05 2025-06-20 2025-03-22, 09/25/2023 00:00:00, 2025-07-05
+                                              Shift                        2025-06-26 2025-05-16, C, B8
+139   Powell, Chad D. (HM/PM)                 Force Hire for the A   LT    2025-07-05 2025-06-20 2025-03-22, 02/16/1998 00:00:00, 2025-07-17
+                                              Shift                        2025-07-05 2025-06-30, C, 22
+140   Clark, William A.                       Force Hire for the A   FF    2025-07-05 2025-06-21 2025-04-24, 08/16/2019 00:00:00, 2025-07-08
+                                              Shift                        2025-06-26 2025-06-08, C, 19
+141   Driggers, Mark A. (FDSO/HM/PM/SWUR)     Force Hire for the A   LT    2025-07-05 2025-06-28 2025-04-19, 10/29/2007 00:00:00, 2025-07-11
+                                              Shift                        2025-07-05 2025-06-28, , ESS
+142   Hughes, Cody J. (HM)                    Force Hire for the A   ENG   2025-07-05 2025-07-04 2025-05-30, 04/21/2014 00:00:00, 2025-07-13
+                                              Shift                        2025-07-05 2025-06-27, , FI
+143   Martinez, Daniel E.                     Force Hire for the A   FF    2025-07-11 2024-10-12 2024-06-22, 04/21/2014 00:00:00, 2024-12-10
+                                              Shift                        2024-10-12 2024-09-17, C, 28
+144   Gibson, Andre J. (TRT)                  Force Hire for the A   ENG   2025-07-11 2025-03-22 2024-11-02, 09/29/2014 00:00:00, 2025-03-22
+                                              Shift                        2025-03-10 2024-11-02, C, 01
+145   McMillan, Quintin M. (HAZMAT)           Force Hire for the A   FF    2025-07-11 2025-03-25 2024-09-14, 12/31/2021 00:00:00, 2025-07-17
+                                              Shift                        2025-05-30 2025-01-06, C, 17
+146   Jones, David W. (HAZMATBC/PM)           Force Hire for the A   BC    2025-07-11 2025-07-05 2025-05-24, 08/02/1999 00:00:00, 2025-07-13
+                                              Shift                        2025-07-11 2025-07-06, , FI
+147   Elliott, Michael L.                     Force Hire for the A   FF    2025-07-12 2025-04-12 2024-11-23, 08/19/2022 00:00:00, 2025-07-12
+                                              Shift                        2025-06-29 2025-06-18, C, 08
+148   Ambrosini, Austin L. (HAZMAT/PM/SWUR)   Force Hire for the A   ENG   2025-07-12 2025-04-19 2025-03-01, 08/13/2020 00:00:00, 2025-07-12
+                                              Shift                        2025-06-09 2025-04-19, C, 24
+149   Chambers, Wesley R.                     Force Hire for the A   LT    2025-07-12 2025-04-19 2025-03-22, 02/05/2007 00:00:00, 2025-07-12
+                                              Shift                        2025-06-20 2025-04-25, C, 05
+150   Patterson, Duell R. (HM)                Force Hire for the A   LT    2025-07-12 2025-04-24 2024-12-28, 04/21/2014 00:00:00, 2025-07-12
+                                              Shift                        2025-06-29 2025-06-11, C, 20
+151   Brake, Jr., David R. (HM)               Force Hire for the A   ENG   2025-07-12 2025-05-03 2025-02-15, 10/26/1998 00:00:00, 2025-07-12
+                                              Shift                        2025-06-06 2025-05-03, C, 16
+152   May, Kyle A.                            Force Hire for the A   FF    2025-07-12 2025-05-06 2025-04-12, 09/25/2023 00:00:00, 2025-07-12
+                                              Shift                        2025-07-08 2025-06-18, C, B2
+153   Spencer, Shawn M.                       Force Hire for the A   ENG   2025-07-12 2025-05-09 2025-02-08, 10/26/1998 00:00:00, 2025-07-18
+                                              Shift                        2025-07-12 2025-06-29, C, 27
+154   Jackson, Cody D.                        Force Hire for the A   FF    2025-07-12 2025-05-22 2025-03-29, 11/04/2022 00:00:00, 2025-07-12
+                                              Shift                        2025-06-06 2025-05-28, C, 05
+155   Brann, Joshua (HAZMAT)                  Force Hire for the A   FF    2025-07-12 2025-05-24 2025-03-08, 12/21/2018 00:00:00, 2025-07-12
+                                              Shift                        2025-05-01 2025-04-16, C, 24
+156   Mayﬁeld, Myles L. (SWUR)                Force Hire for the A   FF    2025-07-12 2025-05-24 2025-03-16, 08/19/2022 00:00:00, 2025-07-12
+                                              Shift                        2025-06-29 2025-05-24, C, 07
+157   Crow, Calab D. (HAZMAT/TRT)             Force Hire for the A   ENG   2025-07-12 2025-06-14 2025-05-10, 03/12/2012 00:00:00, 2025-07-12
+                                              Shift                        2025-06-30 2025-06-14, C, 02
+158   Bobo, John M. (HM)                      Force Hire for the A   LT    2025-07-12 2025-06-21 2025-06-14, 09/23/2002 00:00:00, 2025-07-12
+                                              Shift                        2025-06-30 2025-06-21, C, 27
+159   Milbocker, Timothy N. (HAZMAT)          Force Hire for the A   ENG   07/14/2025, 02/05/2007 00:00:00, , C, 08
+                                              Shift
+160   Newton, Jacob T. (HAZMAT/TRT)           Force Hire for the A   FF    2025-07-14 2025-03-28 2024-11-07, 05/12/2008 00:00:00, 2023-10-20
+                                              Shift                        2023-10-13 2023-07-04, C, 02
+161   Johnson, Jr., Ronald E. (CC)            Force Hire for the A   FF    2025-07-14 2025-03-31 2024-11-16, 01/03/2000 00:00:00, 2024-03-16
+                                              Shift                        2023-12-19 2023-12-07, , ESS
+162   Soto, Jair A.                           Force Hire for the A   FF    2025-07-14 2025-04-12 2024-06-29, 08/28/2020 00:00:00, 2025-04-12
+                                      Shift                        2024-06-29 2024-06-02, C, 13
+163   Vasquez, Richard L. (HM)        Force Hire for the A   ENG   2025-07-14 2025-04-12 2024-11-23, 10/17/2016 00:00:00, 2024-11-23
+                                      Shift                        2024-03-16 2023-05-06, C, 29
+164   Portales, Elias S.              Force Hire for the A   FF    2025-07-14 2025-04-12 2024-11-23, 04/21/2014 00:00:00, 2025-04-09
+                                      Shift                        2025-03-25 2025-02-05, C, 15
+165   Scott, William J. (HAZMAT)      Force Hire for the A   ENG   07/17/2025, 03/12/2012 00:00:00, , C, 24
+                                      Shift
+166   Cinque, Emile (SWUR)            Force Hire for the A   ENG   2025-07-17 2025-02-26 2024-07-26, 04/03/2017 00:00:00, 2025-02-05
+                                      Shift                        2025-01-21 2024-12-11, C, 07
+167   Villegas, Fabian G.             Force Hire for the A   LT    2025-07-17 2025-03-22 2024-10-26, 05/12/2008 00:00:00, 2025-07-17
+                                      Shift                        2025-06-29 2025-05-04, C, 06
+168   Agnello, Gino F. (HM/WL)        Force Hire for the A   ENG   2025-07-17 2025-03-28 2024-11-16, 03/28/2011 00:00:00, 2025-07-08
+                                      Shift                        2025-05-06 2025-02-20, C, 03
+169   Tart, Austin G. (DNA/PFF)       Force Hire for the A   FF    2025-07-17 2025-03-31 2024-11-07, 02/26/2024 00:00:00, , C,
+                                      Shift
+170   Stephens, Caleb K.              Force Hire for the A   FF    2025-07-18 2025-04-12 2024-12-07, 12/31/2021 00:00:00, 2025-06-30
+                                      Shift                        2025-06-24 2025-05-28, C, 18
+171   Ives, Jeffrey P. (CC/HM)        Force Hire for the A   FF    2025-07-19 2025-04-18 2024-11-16, 06/03/1996 00:00:00, 2025-07-19
+                                      Shift                        2025-01-09 2024-12-19, , ESS
+172   Lucas, Brett W. (CC/SWUR)       Force Hire for the A   FF    2025-07-19 2025-05-24 2025-03-29, 01/03/2000 00:00:00, 2025-07-19
+                                      Shift                        2024-12-26 2024-10-01, , B5
+173   Sonderer, Paul T. (HM)          Force Hire for the A   FF    2025-07-19 2025-05-24 2025-05-17, 07/10/2000 00:00:00, 2023-10-21
+                                      Shift                        2023-08-26 2023-08-07, , FP
+174   Fojtik, Justin M. (HAZMAT/PM)   Force Hire for the A   LT    2025-07-19 2025-06-28 2025-03-29, 03/28/2011 00:00:00, 2025-07-19
+                                      Shift                        2025-06-15 2025-05-25, , FI
+

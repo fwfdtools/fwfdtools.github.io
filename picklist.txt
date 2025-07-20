@@ -1,0 +1,37 @@
+#    Person                               List     Rank   Opportunity Factors
+1    Gibson, Andre J. (TRT)               Signup   ENG    2025-03-22 2025-03-10 2024-11-02, 09/29/2014 00:00:00, , , C, 01
+2    Benner, Chad N. (BL/TRT)             Signup   ENG    2025-04-03 2025-01-23 2024-11-30, 04/16/2007 00:00:00, , B, , 14
+3    Starnes, Marty E.                    Signup   FF     2025-04-18 2025-03-28 2025-03-18, 06/11/2001 00:00:00, , B, , 21
+4    Campbell, Bianca (HAZMAT)            Signup   ENG    2025-05-23 2025-04-26 2025-04-17, 12/21/2018 00:00:00, , B, , 18
+5    Gilmore, Samuel A. (FDSO/HAZMATBC)   Signup   BC     2025-06-09 2025-05-06 2025-03-13, 09/22/1997 00:00:00, , , C, 25
+6    Toves, Austin N. (TRT)               Signup   FF     2025-06-14 2025-04-27 2025-03-07, 08/28/2020 00:00:00, , , C, 01
+7    Gandy, Kasey T. (HM)                 Signup   LT     2025-06-27 2025-05-28 2025-03-17, 06/09/2003 00:00:00, , , , PS
+8    Salinas, John W. (HM/SWUR)           Signup   FF     2025-06-29 2025-06-14 2025-04-26, 04/21/2014 00:00:00, , , , 17
+9    Sheehy, James R. (HAZMAT)            Signup   C      2025-07-05 2024-05-11 2024-01-10, 11/22/2010 00:00:00, , , C, 19
+10   Garcia, Brigido (HM)                 Signup   FF     2025-07-05 2025-05-24 2025-05-18, 06/11/2001 00:00:00, , , C, 12
+11   Anthony, Andre K. (HM)               Signup   ENG    2025-07-05 2025-06-15 2025-05-25, 04/21/2014 00:00:00, , , C, 05
+12   Fellers, Kevin D. (FDSO)             Signup   C      2025-07-06 2025-06-11 2025-04-24, 01/11/1993 00:00:00, , , C, 28
+13   Cearley, Jason L. (FDSO/HAZMATBC)    Signup   BC     2025-07-06 2025-06-22 2025-06-08, 02/16/1998 00:00:00, , , , AS
+14   Hood, David R. (PM)                  Signup   ENG    2025-07-06 2025-06-22 2025-06-08, 11/22/2010 00:00:00, , , , ES
+15   Williams, Terry J.                   Signup   LT     2025-07-08 2025-06-26 2025-05-27, 11/22/2010 00:00:00, , B, , 08
+16   Mundie, Brandon K.                   Signup   ENG    2025-07-09 2025-06-30 2025-06-24, 04/03/2017 00:00:00, , , C, 06
+17   Ray, Brian H. (TRT)                  Signup   LT     2025-07-10 2025-06-20 2025-06-01, 09/15/2008 00:00:00, , B, , 14
+18   Nicklas, Jimmy D.                    Signup   FF     2025-07-11 2025-05-24 2025-03-19, 01/03/2000 00:00:00, , , C, 16
+19   Escobar, Christopher R. (TRT)        Signup   FF     2025-07-11 2025-06-18 2025-05-24, 01/05/2004 00:00:00, , , C, 38
+20   Goad, Jarod K. (HM/PM)               Signup   LT     2025-07-11 2025-07-06 2025-04-06, 04/21/2014 00:00:00, , , , ES
+21   Woodard, Colby M.                    Signup   FF     2025-07-11 2025-07-08 2025-06-26, 06/29/2021 00:00:00, , B, , 09
+22   Ledford, Christopher L.              Signup   FF     2025-07-12 2025-03-28 2025-02-26, 09/15/2008 00:00:00, , , C, 31
+23   Malone, Mark A. (FDSO/HM)            Signup   C      2025-07-13 2025-06-10 2025-05-20, 12/12/1994 00:00:00, , B, , 16
+24   Franklin, Alexander L. (HM)          Signup   FF     2025-07-13 2025-07-04 2025-05-29, 09/29/2014 00:00:00, , B, , 11
+25   Parnell, Bradley E. (SWUR)           Signup   FF     2025-07-13 2025-07-05 2025-06-22, 09/29/2014 00:00:00, , B, , 34
+26   Gonzales, Steven A.                  Signup   FF     2025-07-14 2025-06-30 2025-06-21, 11/04/2022 00:00:00, , , C, 41
+27   Davis, Austin                        Signup   FF     2025-07-14 2025-07-02 2025-06-23, 02/26/2024 00:00:00, , , C, B5
+28   Alexander, Brian M. (FDSO/HM)        Signup   C      2025-07-14 2025-07-08 2025-06-27, 08/02/1999 00:00:00, , , C, 16
+29   Aguirre, Alejandro (BL)              Signup   LT     2025-07-14 2025-07-09 2025-05-30, 01/05/2004 00:00:00, , , C, 45
+30   Stephens, Gary P. (HM)               Signup   LT     2025-07-17 2025-06-21 2025-04-19, 10/29/2007 00:00:00, , , C, 10
+31   Basham, Ira N. (ST)                  Signup   FF     2025-07-17 2025-07-05 2025-06-20, 07/10/2000 00:00:00, , B, , 08
+32   Leonguerrero, Robby M.               Signup   LT     2025-07-17 2025-07-09 2025-07-06, 01/05/2004 00:00:00, , , C, 29
+33   Tuggle, Joshua L.                    Signup   FF     2025-07-18 2025-06-29 2025-05-17, 09/11/2020 00:00:00, , , , CRR
+34   Wells, James                         Signup   FF     2025-07-18 2025-07-11 2025-07-09, 12/21/2018 00:00:00, , , C, 09
+35   Shaffer, Zachary A. (BL/HM/WL)       Signup   LT     2025-07-19 2025-02-08 2025-01-10, 04/16/2007 00:00:00, , , , SS
+
