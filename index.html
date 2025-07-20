@@ -175,6 +175,64 @@
             text-align: center;
         }
         
+        .assignment-box {
+            border: 2px solid #333;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: white;
+            font-family: Arial, sans-serif;
+        }
+        
+        .assignment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .assignment-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .assignment-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .assignment-field {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .assignment-field label {
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .assignment-field input {
+            border: none;
+            border-bottom: 1px solid #333;
+            background: transparent;
+            padding: 2px 5px;
+            font-size: 14px;
+        }
+        
+        .assignment-counts {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .thick-line {
+            border-bottom: 3px solid #333 !important;
+        }
+        
         @media print {
             body {
                 margin: 0;
@@ -186,13 +244,13 @@
                 padding: 0;
             }
             
-            .status, .controls, .summary {
-                display: none;
+            .status, .controls, .summary, .header {
+                display: none !important;
             }
             
-            .header h1 {
-                font-size: 18px;
-                margin-bottom: 10px;
+            .assignment-box {
+                margin: 0 0 20px 0;
+                page-break-inside: avoid;
             }
             
             table {
@@ -201,6 +259,10 @@
             
             th, td {
                 padding: 4px 6px;
+            }
+            
+            .info {
+                display: none !important;
             }
         }
     </style>
@@ -246,6 +308,35 @@
         </div>
         
         <div id="info" class="info" style="display: none;"></div>
+        
+        <div id="assignmentBox" class="assignment-box" style="display: none;">
+            <div class="assignment-header">
+                <div class="assignment-left">
+                    <div class="assignment-field">
+                        <label>Station:</label>
+                        <input type="text" id="stationInput" value="">
+                    </div>
+                    <div class="assignment-field">
+                        <label>Time:</label>
+                        <input type="text" id="timeInput" value="">
+                    </div>
+                    <div class="assignment-field">
+                        <label>Date:</label>
+                        <input type="text" id="dateInput" value="">
+                    </div>
+                </div>
+                <div class="assignment-right">
+                    <div class="assignment-field">
+                        <label># Hired:</label>
+                        <input type="text" id="hiredInput" value="" readonly>
+                    </div>
+                    <div class="assignment-field">
+                        <label># Forced:</label>
+                        <input type="text" id="forcedInput" value="" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
         
         <div class="table-container">
             <div id="tableOutput"></div>
@@ -366,6 +457,21 @@
             const opportunityFactorIndex = headers.findIndex(header => 
                 header.toLowerCase().includes('opportunity'));
             
+            // Count hired vs forced
+            let hiredCount = 0;
+            let forcedCount = 0;
+            const listIndex = headers.findIndex(header => 
+                header.toLowerCase().includes('list'));
+            
+            filteredRows.forEach(row => {
+                if (row[listIndex] === 'Signup') hiredCount++;
+                else if (row[listIndex] === 'Force') forcedCount++;
+            });
+            
+            // Update assignment box
+            document.getElementById('hiredInput').value = hiredCount;
+            document.getElementById('forcedInput').value = forcedCount;
+            
             let table = '<table>';
             
             table += '<thead><tr>';
@@ -377,7 +483,7 @@
             table += '<tbody>';
             let highlightedCount = 0;
             
-            filteredRows.forEach(row => {
+            filteredRows.forEach((row, index) => {
                 const ranks = ['FF', 'ENG', 'LT', 'C', 'BC'];
                 let rankIndex = -1;
                 
@@ -416,11 +522,17 @@
                 
                 if (shouldHighlight) highlightedCount++;
                 
+                // Add thick line after full + partial shifts
+                const currentCounts = JSON.parse(sessionStorage.getItem('shiftCounts') || '[0,0,0]');
+                const cutoffIndex = currentCounts[0] + currentCounts[1]; // full + partial
+                const isThickLine = index === cutoffIndex - 1;
+                
                 const rowClass = shouldHighlight ? ' class="highlighted"' : '';
+                const cellClass = isThickLine ? ' class="thick-line"' : '';
                 table += `<tr${rowClass}>`;
                 
                 fixedRow.forEach(cell => {
-                    table += `<td>${cell || ''}</td>`;
+                    table += `<td${cellClass}>${cell || ''}</td>`;
                 });
                 
                 table += '</tr>';
@@ -465,10 +577,17 @@
                 status.textContent = 'Processing roster data...';
                 const [fullCount, partialCount, vrCount] = summarizeAfterBattalion(rosterText);
                 
+                // Store counts for later use
+                sessionStorage.setItem('shiftCounts', JSON.stringify([fullCount, partialCount, vrCount]));
+                
                 // Update summary display
                 document.getElementById('fullCount').textContent = fullCount.toString().padStart(2, '0');
                 document.getElementById('partialCount').textContent = partialCount.toString().padStart(2, '0');
                 document.getElementById('vrCount').textContent = vrCount.toString().padStart(2, '0');
+                
+                // Set automatic list length (10 + full + partial)
+                const autoListLength = 10 + fullCount + partialCount;
+                document.getElementById('listLength').value = autoListLength;
                 
                 // Combine picklist and forcelist
                 status.textContent = 'Combining lists...';
@@ -478,9 +597,22 @@
                 status.textContent = 'Converting to table format...';
                 processedData = convertToCSV(combinedLines);
                 
-                // Generate initial table
+                // Set up assignment box with current date and time
+                const now = new Date();
+                const currentDate = now.toLocaleDateString('en-US');
+                const currentTime = now.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    hour12: false 
+                });
+                
+                document.getElementById('dateInput').value = currentDate;
+                document.getElementById('timeInput').value = currentTime;
+                document.getElementById('assignmentBox').style.display = 'block';
+                
+                // Generate initial table with auto list length
                 status.textContent = 'Generating table...';
-                generateTable(processedData);
+                generateTable(processedData, '', autoListLength);
                 
                 // Show success and controls
                 status.className = 'status success';
