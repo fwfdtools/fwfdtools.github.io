@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Quiz Game</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        .main-container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        .left-panel {
+            width: 33.33%;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+            border-right: 1px solid rgba(255, 255, 255, 0.18);
+        }
+        
+        .right-panel {
+            width: 66.67%;
+            position: relative;
+        }
+        
+        .container {
+            max-width: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            font-size: 24px;
+        }
+        
+        .game-container {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            backdrop-filter: none;
+            box-shadow: none;
+            border: none;
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .score {
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            border: none;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 100%;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        button:disabled {
+            background: #666;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        #map {
+            height: 100vh;
+            width: 100%;
+            border-radius: 0;
+            box-shadow: none;
+            background: #f0f0f0;
+        }
+        
+        .feedback {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .feedback.correct {
+            background: rgba(76, 175, 80, 0.8);
+        }
+        
+        .feedback.incorrect {
+            background: rgba(244, 67, 54, 0.8);
+        }
+        
+        .results {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Ensure Leaflet controls are visible */
+        .leaflet-control-zoom a,
+        .leaflet-control-attribution {
+            color: #333 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="left-panel">
+            <div class="container">
+                <h1>🗺️ Street Quiz Game</h1>
+                <div class="game-container">
+                    <div class="instructions">
+                        <p><strong>How to play:</strong></p>
+                        <p>1. Click anywhere on the map to select your quiz location</p>
+                        <p>2. A 0.41-mile radius circle will appear</p>
+                        <p>3. Click "Start Quiz" to begin</p>
+                        <p>4. For each street name shown, click on the correct street on the map</p>
+                        <p>5. You must click within 0.01 miles of the street to get it right!</p>
+                    </div>
+                    
+                    <div class="controls">
+                        <div class="status" id="status">Map loaded! Click on the map to choose your quiz area</div>
+                        <div class="score" id="score">Score: 0/0</div>
+                        <button id="startQuiz" onclick="startQuiz()" disabled>Start Quiz</button>
+                        <button id="resetGame" onclick="resetGame()">Reset</button>
+                    </div>
+                    
+                    <div id="questionContainer" style="display: none;">
+                        <div class="quiz-question" id="question"></div>
+                    </div>
+                    
+                    <div id="feedback"></div>
+                    
+                    <div id="results" class="results" style="display: none;">
+                        <h2>Quiz Complete!</h2>
+                        <p id="finalScore"></p>
+                        <button onclick="resetGame()">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <div id="map"></div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+    <script>
+        let map = null;
+        let selectedLocation = null;
+        let quizCircle = null;
+        let gameState = 'selecting'; // 'selecting', 'ready', 'playing', 'finished'
+        let quizStreets = [];
+        let currentQuestion = 0;
+        let score = 0;
+        let streetsData = [];
+        let mapInitialized = false;
+
+        // Initialize map when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initMap();
+        });
+
+        function initMap() {
+            if (mapInitialized || map) return;
+            
+            try {
+                map = L.map('map').setView([32.7767, -97.0934], 12); // Fort Worth, TX
+                
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19
+                }).addTo(map);
+                
+                map.on('click', onMapClick);
+                mapInitialized = true;
+                
+            } catch (error) {
+                console.error('Error initializing map:', error);
+                document.getElementById('status').textContent = 'Error loading map: ' + error.message;
+            }
+        }
+
+        function onMapClick(e) {
+            if (gameState !== 'selecting' || !map) return;
+            
+            selectedLocation = e.latlng;
+            
+            // Remove existing circle
+            if (quizCircle) {
+                map.removeLayer(quizCircle);
+            }
+            
+            // Add 0.41 mile radius circle (0.41 miles = ~659 meters)
+            quizCircle = L.circle(selectedLocation, {
+                color: '#ff6b6b',
+                fillColor: '#ff6b6b',
+                fillOpacity: 0.2,
+                radius: 659 // 0.41 miles in meters
+            }).addTo(map);
+            
+            document.getElementById('status').textContent = 'Loading real streets from this area...';
+            document.getElementById('startQuiz').disabled = true;
+            
+            // Fetch real streets from OpenStreetMap
+            fetchRealStreets(selectedLocation);
+        }
+
+        async function fetchRealStreets(center) {
+            try {
+                // Calculate bounding box for 0.5 mile radius
+                const radiusInDegrees = 0.41 / 69; // Rough conversion: 1 degree ≈ 69 miles
+                const bbox = {
+                    south: center.lat - radiusInDegrees,
+                    west: center.lng - radiusInDegrees,
+                    north: center.lat + radiusInDegrees,
+                    east: center.lng + radiusInDegrees
+                };
+                
+                // Overpass API query to get streets (ways with names)
+                const query = `
+                [out:json][timeout:25];
+                (
+                  way["highway"]["name"](${bbox.south},${bbox.west},${bbox.north},${bbox.east});
+                );
+                out geom;
+                `;
+                
+                const response = await fetch('https://overpass-api.de/api/interpreter', {
+                    method: 'POST',
+                    body: query
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const data = await response.json();
+                processRealStreets(data, center);
+                
+            } catch (error) {
+                console.error('Error fetching real streets:', error);
+                document.getElementById('status').textContent = 'Error loading street data. Using fallback streets...';
+                generateFallbackStreets(center);
+            }
+        }
+
+        function processRealStreets(data, center) {
+            const streetMap = new Map(); // Group streets by name
+            
+            if (!data.elements || data.elements.length === 0) {
+                generateFallbackStreets(center);
+                return;
+            }
+            
+            data.elements.forEach(element => {
+                if (element.tags && element.tags.name && element.geometry) {
+                    const coords = element.geometry.map(node => [node.lat, node.lon]);
+                    
+                    // Calculate center point of this street segment
+                    const centerLat = coords.reduce((sum, coord) => sum + coord[0], 0) / coords.length;
+                    const centerLng = coords.reduce((sum, coord) => sum + coord[1], 0) / coords.length;
+                    
+                    // Check if street center is within our circle (0.41 miles)
+                    const distance = calculateDistance(center.lat, center.lng, centerLat, centerLng);
+                    if (distance <= 0.41) {
+                        const streetName = element.tags.name;
+                        
+                        // If we already have this street name, combine the coordinates
+                        if (streetMap.has(streetName)) {
+                            const existingStreet = streetMap.get(streetName);
+                            existingStreet.allCoordinates.push(coords);
+                            
+                            // Update the center to be the average of all segments
+                            existingStreet.segmentCenters.push([centerLat, centerLng]);
+                            const avgLat = existingStreet.segmentCenters.reduce((sum, center) => sum + center[0], 0) / existingStreet.segmentCenters.length;
+                            const avgLng = existingStreet.segmentCenters.reduce((sum, center) => sum + center[1], 0) / existingStreet.segmentCenters.length;
+                            existingStreet.center = [avgLat, avgLng];
+                        } else {
+                            // Create new street entry
+                            streetMap.set(streetName, {
+                                name: streetName,
+                                allCoordinates: [coords],
+                                segmentCenters: [[centerLat, centerLng]],
+                                center: [centerLat, centerLng],
+                                id: element.id
+                            });
+                        }
+                    }
+                }
+            });
+            
+            // Convert map to array and flatten coordinates for each street
+            streetsData = Array.from(streetMap.values()).map(street => ({
+                name: street.name,
+                coordinates: street.allCoordinates, // Keep as array of segments
+                center: street.center,
+                id: street.id
+            }));
+            
+            if (streetsData.length < 5) {
+                generateFallbackStreets(center);
+            } else {
+                document.getElementById('status').textContent = `Found ${streetsData.length} unique streets! Click Start Quiz to begin.`;
+                document.getElementById('startQuiz').disabled = false;
+            }
+        }
+
+        function generateFallbackStreets(center) {
+            const fallbackNames = [
+                'Main Street', 'Oak Avenue', 'Maple Drive', 'Cedar Lane', 'Pine Street',
+                'Elm Avenue', 'First Street', 'Second Avenue', 'Park Boulevard', 'Hill Road'
+            ];
+            
+            streetsData = [];
+            
+            for (let i = 0; i < Math.min(10, fallbackNames.length); i++) {
+                const angle = (i * 36) * Math.PI / 180;
+                const distance = 0.001 + Math.random() * 0.002;
+                
+                const lat = center.lat + (distance * Math.cos(angle));
+                const lng = center.lng + (distance * Math.sin(angle));
+                
+                const streetLength = 0.001;
+                const streetAngle = Math.random() * 2 * Math.PI;
+                
+                const coords = [
+                    [lat - (streetLength/2 * Math.cos(streetAngle)), lng - (streetLength/2 * Math.sin(streetAngle))],
+                    [lat + (streetLength/2 * Math.cos(streetAngle)), lng + (streetLength/2 * Math.sin(streetAngle))]
+                ];
+                
+                streetsData.push({
+                    name: fallbackNames[i],
+                    coordinates: coords,
+                    center: [lat, lng],
+                    id: 'fallback_' + i
+                });
+            }
+            
+            document.getElementById('status').textContent = `Quiz ready with ${streetsData.length} streets! Click Start Quiz to begin.`;
+            document.getElementById('startQuiz').disabled = false;
+        }
+
+        function calculateDistance(lat1, lng1, lat2, lng2) {
+            const R = 3959; // Earth's radius in miles
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLng = (lng2 - lng1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                    Math.sin(dLng/2) * Math.sin(dLng/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        function startQuiz() {
+            if (streetsData.length === 0 || !map) return;
+            
+            gameState = 'playing';
+            currentQuestion = 0;
+            score = 0;
+            
+            // Select up to 10 random streets for the quiz
+            quizStreets = [...streetsData].sort(() => 0.41 - Math.random()).slice(0, Math.min(10, streetsData.length));
+            
+            // Calculate zoom level to fit 90% of circle diameter
+            const circleDiameterInMeters = 804.672 * 2; // 0.5 mile radius * 2
+            const mapContainer = map.getContainer();
+            const mapWidth = mapContainer.offsetWidth;
+            const mapHeight = mapContainer.offsetHeight;
+            const shortestDimension = Math.min(mapWidth, mapHeight);
+            
+            // Calculate zoom level - we want the circle diameter to be 90% of shortest dimension
+            const targetDiameterPixels = shortestDimension * 0.9;
+            const metersPerPixelAtZoom = circleDiameterInMeters / targetDiameterPixels;
+            
+            // Leaflet zoom calculation (approximate)
+            const targetZoom = Math.log2(156543.03392 * Math.cos(selectedLocation.lat * Math.PI / 180) / metersPerPixelAtZoom);
+            
+            // Zoom and center on the selected location
+            map.setView(selectedLocation, Math.max(10, Math.min(18, targetZoom)), {animate: true, duration: 1});
+            
+            // Wait for zoom animation to complete, then switch to blank tiles and disable interaction
+            setTimeout(() => {
+                // Remove the current tile layer and switch to blank tiles
+                map.eachLayer(function (layer) {
+                    if (layer instanceof L.TileLayer) {
+                        map.removeLayer(layer);
+                    }
+                });
+                
+                // Add CartoDB voyager tiles without labels (perfect for quiz mode)
+                L.tileLayer('https://c.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors, © CARTO',
+                    maxZoom: 19
+                }).addTo(map);
+                
+                // Disable all map interactions
+                map.dragging.disable();
+                map.touchZoom.disable();
+                map.doubleClickZoom.disable();
+                map.scrollWheelZoom.disable();
+                map.boxZoom.disable();
+                map.keyboard.disable();
+                if (map.tap) map.tap.disable();
+                
+                // Hide zoom controls
+                map.zoomControl.remove();
+                
+                // Store quiz street polylines for later coloring (but don't add them yet)
+                window.quizStreetLayers = [];
+                
+            }, 1000); // Wait 1 second for zoom animation
+            
+            document.getElementById('questionContainer').style.display = 'block';
+            document.getElementById('startQuiz').disabled = true;
+            document.getElementById('status').textContent = 'Quiz in progress...';
+            
+            // Set up click handler for quiz
+            map.off('click', onMapClick);
+            map.on('click', onQuizClick);
+            
+            setTimeout(() => {
+                showNextQuestion();
+            }, 1500); // Delay first question until map is ready
+        }
+
+        function showNextQuestion() {
+            if (currentQuestion >= quizStreets.length) {
+                endQuiz();
+                return;
+            }
+            
+            const street = quizStreets[currentQuestion];
+            document.getElementById('question').textContent = `Find: ${street.name}`;
+            document.getElementById('score').textContent = `Score: ${score}/${currentQuestion}`;
+            
+            // Clear previous feedback
+            document.getElementById('feedback').innerHTML = '';
+        }
+
+        function onQuizClick(e) {
+            if (gameState !== 'playing') return;
+            
+            const clickedPoint = e.latlng;
+            const currentStreet = quizStreets[currentQuestion];
+            
+            // Calculate distance from clicked point to the actual street (all segments)
+            const distanceInMiles = calculateDistanceToStreet(clickedPoint, currentStreet);
+            const isCorrect = distanceInMiles <= 0.01;
+            
+            console.log(`Distance to street: ${distanceInMiles.toFixed(4)} miles`);
+            
+            // Show all segments of the street with appropriate color
+            const streetColor = isCorrect ? '#4CAF50' : '#f44336'; // Green if correct, red if wrong
+            
+            currentStreet.coordinates.forEach(segmentCoords => {
+                const streetLayer = L.polyline(segmentCoords, {
+                    color: streetColor,
+                    weight: 6,
+                    opacity: 1,
+                    interactive: false
+                }).addTo(map);
+                
+                // Store the layer so we don't remove it during reset
+                window.quizStreetLayers = window.quizStreetLayers || [];
+                window.quizStreetLayers.push(streetLayer);
+            });
+            
+            if (isCorrect) {
+                score++;
+                showFeedback(`Correct! ✅ (Distance: ${(distanceInMiles * 5280).toFixed(1)} feet)`, 'correct');
+            } else {
+                showFeedback(`Wrong! ❌ You were ${(distanceInMiles * 5280).toFixed(1)} feet away.`, 'incorrect');
+            }
+            
+            currentQuestion++;
+            
+            // Auto-advance to next question after 2 seconds
+            setTimeout(() => {
+                showNextQuestion();
+            }, 2000);
+        }
+
+        function calculateDistanceToStreet(clickPoint, street) {
+            let minDistanceInMiles = Infinity;
+            
+            // Check distance to each segment of all coordinate arrays for this street
+            street.coordinates.forEach(segmentCoords => {
+                for (let i = 0; i < segmentCoords.length - 1; i++) {
+                    const segmentStart = segmentCoords[i];
+                    const segmentEnd = segmentCoords[i + 1];
+                    
+                    const distanceToSegment = distancePointToLineSegmentInMiles(
+                        clickPoint,
+                        { lat: segmentStart[0], lng: segmentStart[1] },
+                        { lat: segmentEnd[0], lng: segmentEnd[1] }
+                    );
+                    
+                    minDistanceInMiles = Math.min(minDistanceInMiles, distanceToSegment);
+                }
+            });
+            
+            return minDistanceInMiles;
+        }
+
+        function distancePointToLineSegmentInMiles(point, lineStart, lineEnd) {
+            const A = lineStart;
+            const B = lineEnd;
+            const P = point;
+            
+            // Vector from A to B
+            const ABx = B.lng - A.lng;
+            const ABy = B.lat - A.lat;
+            
+            // Vector from A to P
+            const APx = P.lng - A.lng;
+            const APy = P.lat - A.lat;
+            
+            // Project P onto line AB
+            const AB_squared = ABx * ABx + ABy * ABy;
+            
+            if (AB_squared === 0) {
+                // A and B are the same point
+                return calculateDistance(P.lat, P.lng, A.lat, A.lng);
+            }
+            
+            const t = Math.max(0, Math.min(1, (APx * ABx + APy * ABy) / AB_squared));
+            
+            // Find the closest point on the line segment
+            const closestPoint = {
+                lat: A.lat + t * ABy,
+                lng: A.lng + t * ABx
+            };
+            
+            // Return distance in miles
+            return calculateDistance(P.lat, P.lng, closestPoint.lat, closestPoint.lng);
+        }
+
+        function showFeedback(message, type) {
+            const feedback = document.getElementById('feedback');
+            feedback.innerHTML = `<div class="feedback ${type}">${message}</div>`;
+        }
+
+        function endQuiz() {
+            gameState = 'finished';
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('finalScore').textContent = `You got ${score} out of ${quizStreets.length} streets correct! (${Math.round(score/quizStreets.length*100)}%)`;
+            document.getElementById('status').textContent = 'Quiz completed!';
+        }
+
+        function resetGame() {
+            gameState = 'selecting';
+            selectedLocation = null;
+            quizStreets = [];
+            currentQuestion = 0;
+            score = 0;
+            streetsData = [];
+            
+            // Clear map only if it exists
+            if (map && typeof map.eachLayer === 'function') {
+                // Re-enable all map interactions
+                map.dragging.enable();
+                map.touchZoom.enable();
+                map.doubleClickZoom.enable();
+                map.scrollWheelZoom.enable();
+                map.boxZoom.enable();
+                map.keyboard.enable();
+                if (map.tap) map.tap.enable();
+                
+                // Add zoom controls back
+                map.zoomControl.addTo(map);
+                
+                // Remove all layers except base tiles
+                map.eachLayer(function (layer) {
+                    if (layer instanceof L.Circle || layer instanceof L.Polyline) {
+                        map.removeLayer(layer);
+                    }
+                    if (layer instanceof L.TileLayer) {
+                        map.removeLayer(layer);
+                    }
+                });
+                
+                // Add the normal OpenStreetMap tiles back
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '© OpenStreetMap contributors',
+                    maxZoom: 19
+                }).addTo(map);
+                
+                // Reset map view
+                map.setView([32.7767, -97.0934], 12);
+                
+                // Clear quiz street layers
+                window.quizStreetLayers = [];
+                
+                // Reset map handlers
+                map.off('click', onQuizClick);
+                map.on('click', onMapClick);
+            }
+            
+            // Reset UI
+            document.getElementById('status').textContent = 'Click on the map to choose your quiz area';
+            document.getElementById('score').textContent = 'Score: 0/0';
+            document.getElementById('startQuiz').disabled = true;
+            document.getElementById('questionContainer').style.display = 'none';
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('feedback').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
