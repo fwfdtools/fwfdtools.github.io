@@ -158,6 +158,123 @@
         .leaflet-control-attribution {
             color: #333 !important;
         }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                height: 100vh;
+            }
+            
+            .left-panel {
+                width: 100%;
+                height: calc(100vh - 100vw); /* Height = viewport height minus square map */
+                min-height: 300px; /* Ensure minimum height for content */
+                padding: 15px;
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+                overflow-y: auto;
+            }
+            
+            .right-panel {
+                width: 100%;
+                height: 100vw; /* Square - width equals viewport width */
+                max-height: calc(100vh - 300px); /* Don't exceed remaining space */
+                position: relative;
+            }
+            
+            #map {
+                height: 100%;
+                width: 100%;
+            }
+            
+            h1 {
+                font-size: 20px;
+                margin-bottom: 15px;
+            }
+            
+            .instructions {
+                padding: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .instructions p {
+                margin: 8px 0;
+                font-size: 14px;
+            }
+            
+            .controls {
+                gap: 12px;
+                margin-bottom: 15px;
+            }
+            
+            .status, .score {
+                font-size: 14px;
+            }
+            
+            button {
+                padding: 10px 16px;
+                font-size: 14px;
+            }
+            
+            .quiz-question {
+                padding: 12px;
+                font-size: 16px;
+                margin-bottom: 12px;
+            }
+            
+            .feedback {
+                padding: 8px;
+                margin: 8px 0;
+                font-size: 14px;
+            }
+            
+            .results {
+                padding: 15px;
+                margin-top: 15px;
+            }
+            
+            .results h2 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .results p {
+                font-size: 14px;
+            }
+        }
+
+        /* Very small mobile screens */
+        @media (max-width: 480px) {
+            .left-panel {
+                padding: 10px;
+                min-height: 250px;
+            }
+            
+            h1 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .instructions {
+                padding: 10px;
+            }
+            
+            .instructions p {
+                font-size: 13px;
+                margin: 6px 0;
+            }
+            
+            button {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .quiz-question {
+                font-size: 15px;
+                padding: 10px;
+            }
+        }
     </style>
 </head>
 <body>
